@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>power by flask</h2>
+
+    <ul>
+        {% for domain in domains %}
+        <li>
+            <a href="{{ " https://"+ domain }}">{{domain}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
