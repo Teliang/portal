@@ -6,9 +6,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    path = os.environ['NGINX_CONF_PATH']
-    if not path:
-        path = '/etc/nginx/conf.d'
+    path = os.environ.get('NGINX_CONF_PATH','/etc/nginx/conf.d')
     files = os.listdir(path)
     # Filtering only the files.
     files = [path + '/' + f for f in files if os.path.isfile(path+'/'+f)]
