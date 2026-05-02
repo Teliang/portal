@@ -4,6 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: portal
+    restart: unless-stopped
     volumes:
       - /etc/nginx/conf.d:/etc/nginx/conf.d
     ports:
