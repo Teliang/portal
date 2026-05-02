@@ -16,10 +16,11 @@ def index():
     for conf_path in files:
         with open(conf_path, 'r') as file:
             for line in file:
-                if('server_name' in line):
+                if line.startswith('#'):
+                    continue
+                if 'server_name' in line:
                     line = line.strip()
                     domain = line.split()[1].rstrip(";")
                     domains.append(domain)
-                    print(domain)
-                    continue
+    domains.sort()
     return render_template("index.html", domains=domains)
