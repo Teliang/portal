@@ -1,0 +1,12 @@
+services:
+  portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portal
+    volumes:
+      - /etc/nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - "5000:5000"
+    environment:
+      - NGINX_CONF_PATH=/etc/nginx/conf.d
